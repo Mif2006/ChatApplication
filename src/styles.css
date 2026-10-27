@@ -1,0 +1,115 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Roboto", system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-bubble-in: var(--bubble-in);
+  --color-bubble-out: var(--bubble-out);
+  --color-bubble-out-foreground: var(--bubble-out-foreground);
+  --color-bubble-meta: var(--bubble-meta);
+  --color-online: var(--online);
+  --color-chat-header: var(--chat-header);
+}
+
+/* Telegram-inspired dark theme is the default */
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.2 0.018 250);
+  --foreground: oklch(0.96 0.005 250);
+  --card: oklch(0.235 0.02 250);
+  --card-foreground: oklch(0.96 0.005 250);
+  --popover: oklch(0.25 0.02 250);
+  --popover-foreground: oklch(0.96 0.005 250);
+  --primary: oklch(0.64 0.16 250);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.28 0.022 250);
+  --secondary-foreground: oklch(0.96 0.005 250);
+  --muted: oklch(0.27 0.02 250);
+  --muted-foreground: oklch(0.66 0.02 250);
+  --accent: oklch(0.29 0.025 250);
+  --accent-foreground: oklch(0.96 0.005 250);
+  --destructive: oklch(0.63 0.2 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.3 0.02 250);
+  --input: oklch(0.28 0.02 250);
+  --ring: oklch(0.64 0.16 250);
+  --sidebar: oklch(0.22 0.02 250);
+  --sidebar-foreground: oklch(0.96 0.005 250);
+  --sidebar-accent: oklch(0.55 0.15 250);
+  --chat-header: oklch(0.22 0.02 250);
+  --bubble-in: oklch(0.27 0.022 250);
+  --bubble-out: oklch(0.42 0.09 250);
+  --bubble-out-foreground: oklch(0.98 0.005 250);
+  --bubble-meta: oklch(0.75 0.03 250);
+  --online: oklch(0.72 0.17 150);
+  --chat-bg: radial-gradient(circle at 20% 20%, oklch(0.28 0.05 200 / 0.5), transparent 45%),
+    radial-gradient(circle at 80% 70%, oklch(0.27 0.06 280 / 0.45), transparent 50%),
+    radial-gradient(circle at 60% 10%, oklch(0.26 0.05 160 / 0.4), transparent 40%),
+    oklch(0.17 0.02 250);
+  --shadow-bubble: 0 1px 2px oklch(0 0 0 / 0.3);
+  --av-blue: linear-gradient(135deg, oklch(0.72 0.13 235), oklch(0.6 0.16 255));
+  --av-green: linear-gradient(135deg, oklch(0.8 0.15 145), oklch(0.65 0.15 155));
+  --av-orange: linear-gradient(135deg, oklch(0.82 0.14 70), oklch(0.7 0.17 50));
+  --av-pink: linear-gradient(135deg, oklch(0.78 0.14 0), oklch(0.65 0.2 10));
+  --av-teal: linear-gradient(135deg, oklch(0.8 0.11 195), oklch(0.65 0.12 210));
+  --av-red: linear-gradient(135deg, oklch(0.75 0.17 30), oklch(0.62 0.2 25));
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .chat-bg { background: var(--chat-bg); }
+  .shadow-bubble { box-shadow: var(--shadow-bubble); }
+  .av-blue { background: var(--av-blue); }
+  .av-green { background: var(--av-green); }
+  .av-orange { background: var(--av-orange); }
+  .av-pink { background: var(--av-pink); }
+  .av-teal { background: var(--av-teal); }
+  .av-red { background: var(--av-red); }
+  .thin-scroll { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+  .rec-pulse { animation: rec-pulse 1.2s ease-in-out infinite; }
+}
+
+@keyframes rec-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
